@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="jumbotron bg-light p-5 rounded">
+            <h1 class="display-4">Bienvenido a la Biblioteca de Natalia De Asis</h1>
+            <p class="lead">Gestion de libros</p>
+            <hr class="my-4">
+            <p>Administre los libros que quiera, apruebeme profe</p>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-book"></i> Libros</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Gestione la coleccion de libros</p>
+                <a href="{% url 'libro_list' %}" class="btn btn-primary">Ver Libros</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="fas fa-tags"></i> Categorias</h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Administre las categorias de los libros</p>
+                <a href="{% url 'categoria_list' %}" class="btn btn-success">Ver Categorias</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h3>Los ultimos Libros yay</h3>
+        {% for libro in libros|slice:":3" %}
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ libro.titulo }}</h5>
+                <p class="card-text">Autor: {{ libro.autor }} | Año: {{ libro.anio }} | Categoría: {{ libro.categoria.nombre }}</p>
+            </div>
+        </div>
+        {% empty %}
+        <p>Todavia no hay libros disponibles u.u</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

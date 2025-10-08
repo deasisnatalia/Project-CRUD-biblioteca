@@ -1,0 +1,29 @@
+{% extends 'categorias/base.html' %}
+
+{% block title %}Eliminar Categoria{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h3 class="mb-0"><i class="fas fa-trash"></i> Eliminar Categoria</h3>
+            </div>
+            <div class="card-body">
+                <p>¿Eliminar la categoria "{{ object.nombre }}"?</p>
+                <p class="text-warning">Esta accion no se puede deshacer</p>
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash"></i> Confirmar
+                    </button>
+                    <a href="{% url 'categoria_list' %}" class="btn btn-secondary">
+                        <i class="fas fa-times"></i> Cancelar
+                    </a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
