@@ -1,20 +1,28 @@
-# Biblioteca
-
-## Dependencias
+DEPENDENCIAS
 - Python 3.8+
 - Django 4.0+
 - Pillow
 
-## Superuser
-usuario: deasis
-email: deasis@admin.com
-contra: admin
 
-## Instalar dependencias y correr migraciones
+INSTALACION Y CONFIGURACION
+1. Clonar el repositorio
+  git clone https://github.com/deasisnatalia/Project-CRUD-biblioteca.git
+  cd Project-CRUD-biblioteca
 
-1. Crear entorno virtual - python -m venv venv - venv\Scripts\activate
-2. pip intall django
-3. pip install pillow
-4. python manage.py makemigrations
-5. python manage.py migrate
-6. python manage.py runserver
+2. Crear entorno virtual
+   python -m venv venv
+   venv\Scripts\activate
+
+3. Instalar dependencias
+   pip intall django
+   pip install pillow
+
+4. Aplicar migraciones
+   python manage.py makemigrations
+   python manage.py migrate
+
+5. Crear Superusuario
+   python manage.py createsuperuser
+   
+6. Iniciar el servidor
+   python manage.py runserver
